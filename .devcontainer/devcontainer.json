@@ -23,6 +23,9 @@
       "workbench.colorTheme": "Visual Studio Light",
       "window.zoomLevel": 0,
       "editor.suggestSelection": "first",
+      "editor.tabSize": 2,
+      "editor.detectIndentation": false,
+      "editor.insertSpaces": true,
       "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
       "terraform.indexing": {
         "enabled": false,
