@@ -1,21 +1,22 @@
 {
-	"name": "Terraform",
-	"dockerFile": "Dockerfile",
+  "name": "Terraform",
+  "dockerFile": "Dockerfile",
 
-	// Specifies a list of ports the container should publish
-	"appPort": [],
+  // Specifies a list of ports the container should publish
+  "appPort": [],
 
-	"runArgs": [
-		// Uncomment the next line to run as root instead. Linux users, 
-		// update Dockerfile with your user's UID/GID if not 1000 when
-		// using the default "vscode" user.
-		// "-u", "root",
+  "runArgs": [
+    // Uncomment the next line to run as root instead. Linux users, 
+    // update Dockerfile with your user's UID/GID if not 1000 when
+    // using the default "vscode" user.
+    // "-u", "root",
 
-		"--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"
-	],
+    "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined",
+    "-v", "${env:HOME}/.ssh:/home/vscode/.ssh"
+  ],
 
-	// Use 'settings' to set *default* container specific settings.json values on container create. 
-	// You can edit these settings after create using File > Preferences > Settings > Remote.
+  // Use 'settings' to set *default* container specific settings.json values on container create. 
+  // You can edit these settings after create using File > Preferences > Settings > Remote.
 	"settings": { 
       "terminal.integrated.shell.linux": "/bin/bash",
       "workbench.colorTheme": "Visual Studio Light",
