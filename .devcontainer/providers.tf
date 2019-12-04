@@ -1,4 +1,4 @@
-provider "aws" {}
+provider "aws" { region = "us-west-2" }
 provider "azurerm" {}
 provider "google" {}
 provider "alicloud" {}
