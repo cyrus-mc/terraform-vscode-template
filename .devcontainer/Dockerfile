@@ -45,3 +45,5 @@ COPY providers.tf /usr/local/bin/providers.tf
 RUN cd /usr/local/bin && \
     terraform init && \
     mv /usr/local/bin/.terraform/plugins/**/terraform-provider* /usr/local/bin
+
+USER $USERNAME
