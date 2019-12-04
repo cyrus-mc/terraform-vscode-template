@@ -1,0 +1,49 @@
+{
+	"name": "Terraform",
+	"dockerFile": "Dockerfile",
+
+	// Specifies a list of ports the container should publish
+	"appPort": [],
+
+	"runArgs": [
+		// Uncomment the next line to run as root instead. Linux users, 
+		// update Dockerfile with your user's UID/GID if not 1000 when
+		// using the default "vscode" user.
+		// "-u", "root",
+
+		"--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"
+	],
+
+	// Use 'settings' to set *default* container specific settings.json values on container create. 
+	// You can edit these settings after create using File > Preferences > Settings > Remote.
+	"settings": { 
+      "terminal.integrated.shell.linux": "/bin/bash",
+      "workbench.colorTheme": "Visual Studio Light",
+      "window.zoomLevel": 0,
+      "editor.suggestSelection": "first",
+      "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+      "terraform.indexing": {
+        "enabled": false,
+        "liveIndexing": true,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
+      },
+      "terraform.languageServer": {
+        "enabled": true,
+        "pathToBinary": "/usr/local/bin",
+        "installCommonProviders": false,  // these are installed as part of the container image
+        "args": []
+      },
+      "[terraform]": {   
+      },
+      "files.eol": "\n" // formatting only supports LF line endings
+	},
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "go version",
+	"extensions": [
+      "mauve.terraform"
+	]
+}
