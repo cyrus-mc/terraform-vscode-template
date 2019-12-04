@@ -12,7 +12,8 @@
     // "-u", "root",
 
     "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined",
-    "-v", "${env:HOME}/.ssh:/home/vscode/.ssh"
+    "-v", "${env:HOME}/.ssh:/home/vscode/.ssh",
+    "-v", "${env:HOME}/.aws:/home/vscode/.aws"
   ],
 
   // Use 'settings' to set *default* container specific settings.json values on container create. 
